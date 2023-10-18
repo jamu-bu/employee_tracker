@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const { table } = require('console');
+const db = require("../db/connection");
+const cTable = require('console.table');
 
 const runInquirer = () => {
     inquirer
@@ -76,7 +77,7 @@ const runInquirer = () => {
         if (err) {
             throw err;
         }
-            console.log(table(rows));
+            console.table(rows);
             return runInquirer();
         });
         };
@@ -92,7 +93,7 @@ const runInquirer = () => {
             if (err) {
             throw err;
         }
-        console.log(table(rows));
+        console.table(rows);
         return runInquirer();
         });
     };
@@ -112,7 +113,7 @@ const runInquirer = () => {
             if (err) {
                 throw err;
             }
-            console.log(table(rows));
+            console.table(rows);
             return runInquirer();
         });
     };
@@ -368,7 +369,7 @@ const runInquirer = () => {
                         console.log("This employee does not a manage others");
                         return runInquirer();
                     }
-                    console.log(table(rows));
+                    console.table(rows);
                     return runInquirer();
                 });
             });
@@ -401,7 +402,7 @@ const runInquirer = () => {
                     if (err) {
                         throw err;
                     }
-                    console.log(table(rows));
+                    console.table(rows);
                     return runInquirer();
                 });
             });
